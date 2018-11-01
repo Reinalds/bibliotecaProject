@@ -19,7 +19,7 @@ public class LivroControl {
         validarPalavrasChaves(palavrasChaves);
         
         LivroVO livroVO = new LivroVO(titulo, Integer.parseInt(exemplar), Boolean.parseBoolean(disponivel), localEdicao, codigoISBN);
-        //LivroDO dao = LivroDAO(livroVO);
+        //LivroDAO dao = LivroDAO(livroVO);
     }
     private void validarTitulo(String titulo) throws EmptyException, ImpossibleNumberException{
         if(titulo.isEmpty())

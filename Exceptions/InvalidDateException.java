@@ -9,6 +9,10 @@ package Exceptions;
  *
  * @author felip
  */
-public class InvalidDateException {
+public class InvalidDateException extends Exception {
+    
+    public InvalidDateException(String mensagem) {
+        super(mensagem);
+    }
     
 }

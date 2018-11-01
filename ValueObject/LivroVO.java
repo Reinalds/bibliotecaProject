@@ -2,7 +2,7 @@ package ValueObject;
 
 import java.util.ArrayList;
 
-public class LivroVO extends Item {
+public class LivroVO extends ItemVO {
     private String localEdicao;
     private String codigoISBN;
     private ArrayList<String> palavrasChave;
@@ -13,6 +13,11 @@ public class LivroVO extends Item {
         this.localEdicao = localEdicao;
         this.codigoISBN = codigoISBN;
         this.palavrasChave = new ArrayList();
+    }
+    
+    public LivroVO(String titulo, int exemplar)
+    {
+        super(titulo, exemplar);
     }
 
     public ArrayList<String> getPalavrasChave()

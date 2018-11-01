@@ -13,6 +13,7 @@ import java.util.Date;
 
 public class RevistaControl {
     private Date dataEdicao;
+    
     public void cadastrarRevista(String titulo, String exemplar, String disponivel, String dataEdicao) throws EmptyException, ImpossibleNumberException, InvalidSizeException, InvalidDateException, ParseException{
         
         validarTitulo(titulo);
@@ -20,6 +21,7 @@ public class RevistaControl {
         
         RevistaVO revistaVO = new RevistaVO(titulo, Integer.parseInt(exemplar), Boolean.parseBoolean(disponivel), validarDataEdicao(dataEdicao));
     }
+    
     private void validarTitulo(String titulo) throws EmptyException, ImpossibleNumberException{
         if(titulo.isEmpty())
             throw new EmptyException("titulo");

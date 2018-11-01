@@ -2,7 +2,7 @@ package ValueObject;
 
 import java.util.Date;
 
-public class RevistaVO extends Item
+public class RevistaVO extends ItemVO
 {
     private Date dataEdicao;
 
@@ -10,6 +10,11 @@ public class RevistaVO extends Item
     {
         super(titulo, exemplar, disponivel);
         this.dataEdicao = dataEdicao;
+    }
+    
+    public RevistaVO(String titulo, int exemplar)
+    {
+        super(titulo, exemplar);
     }
 
     public Date getDataEdicao() {
