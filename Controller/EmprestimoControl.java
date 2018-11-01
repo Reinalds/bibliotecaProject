@@ -5,15 +5,14 @@
  */
 package Controller;
 
-import Exceptions.EmptyException;
-import Exceptions.InvalidDateException;
+import Exceptions.naoDisponivelException;
 import ValueObject.AssociadoVO;
 import ValueObject.EmprestimoVO;
+import ValueObject.FilaEsperaVO;
 import ValueObject.LivroVO;
 import ValueObject.RevistaVO;
 import java.sql.SQLException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -28,23 +27,32 @@ public class EmprestimoControl {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 	Date date = new Date();
         dateFormat.format(date);
-        LivroVO livro = new LivroVO(titulo, exemplar);
+        LivroVO livro = new LivroVO(titulo, exemplar, false);
         EmprestimoVO emprestimoVO = new EmprestimoVO(date, associado, livro);
         //EmprestimoDAO emprestimoDAO = new EmprestimoDAO(emprestimoVO);
-        //emprestimoDAO.emprestarLivro();
+        
+        /*if(emprestimoDAO.consultarDisponibilidadeLivro(titulo)) 
+            emprestimoDAO.emprestarLivro(emprestimoVO);
+        else
+            throw new naoDisponivelException(titulo);
+        */
         
     }
 
-    public void emprestarRevista(AssociadoVO associado, String titulo, int exemplar) throws SQLException {
+    public void emprestarRevista(AssociadoVO associado, String titulo, int exemplar) throws SQLException, naoDisponivelException {
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 	Date date = new Date();
         dateFormat.format(date);
-        RevistaVO revista = new RevistaVO(titulo, exemplar);
+        RevistaVO revista = new RevistaVO(titulo, exemplar, false);
         EmprestimoVO emprestimoVO = new EmprestimoVO(date, associado, revista);
         //EmprestimoDAO emprestimoDAO = new EmprestimoDAO(emprestimoVO);
-        //emprestimoDAO.emprestarRevista();
-
+        
+        /*if(emprestimoDAO.consultarDisponibilidadeRevista(titulo)) 
+            emprestimoDAO.emprestarRevista(revista);
+        else 
+            throw new naoDisponivelException(titulo);
+        */
     }
 
     public void devolverLivro(String titulo, int exemplar) throws SQLException {
@@ -52,7 +60,7 @@ public class EmprestimoControl {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 	Date date = new Date();
         dateFormat.format(date);
-        LivroVO livroVO = new LivroVO(titulo, exemplar);
+        LivroVO livroVO = new LivroVO(titulo, exemplar, false);
         //EmprestimoDAO emprestimoDAO = new EmprestimoDAO(livroVO, date);
         //emprestimoDAO.devolverLivro();
     }
@@ -62,10 +70,15 @@ public class EmprestimoControl {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 	Date date = new Date();
         dateFormat.format(date);
-        RevistaVO revistaVO = new RevistaVO(titulo, exemplar);
+        RevistaVO revistaVO = new RevistaVO(titulo, exemplar, false);
         //EmprestimoDAO emprestimoDAO = new EmprestimoDAO(revistaVO, date);
         //emprestimoDAO.devolverLivro();
         
+    }
+    
+    public void adicionarListaEspera(int idAssociado, String titulo) {
+        //FilaEsperaVO filaEsperaVO = new FilaEsperaVO(idAssociado, titulo);
+        //emprestimoDAO.adicionarFilaEspera(filaEsperaVO); //Temos de ver como implementaremos a fila de espera
     }
 
 }

@@ -1,21 +1,19 @@
 package ValueObject;
 
-import java.util.ArrayList;
-
 public class FilaEsperaVO
 {
-    private AssociadoVO associado;
+    private int idAssociado;
     private String titulo;
 
-    public FilaEsperaVO(AssociadoVO associado, String titulo)
+    public FilaEsperaVO(int idAssociado, String titulo)
     {
-        this.associado = associado;
+        this.idAssociado = idAssociado;
         this.titulo = titulo;
     }
 
-    public AssociadoVO getAssociado() 
+    public int getIdAssociado() 
     {
-        return associado;
+        return idAssociado;
     }
 
     public String getTitulo()
@@ -23,9 +21,9 @@ public class FilaEsperaVO
         return titulo;
     }
 
-    public void setAssociado(AssociadoVO associado) 
+    public void setIdAssociado(int idAssociado) 
     {
-        this.associado = associado;
+        this.idAssociado = idAssociado;
     }
 
     public void setTitulo(String titulo)

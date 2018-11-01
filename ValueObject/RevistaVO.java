@@ -12,9 +12,9 @@ public class RevistaVO extends ItemVO
         this.dataEdicao = dataEdicao;
     }
     
-    public RevistaVO(String titulo, int exemplar)
+    public RevistaVO(String titulo, int exemplar, boolean disponivel)
     {
-        super(titulo, exemplar);
+        super(titulo, exemplar, disponivel);
     }
 
     public Date getDataEdicao() {

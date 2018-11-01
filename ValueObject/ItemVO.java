@@ -16,12 +16,6 @@ public abstract class ItemVO
         this.exemplar = exemplar;
         this.disponivel = disponivel;
     }
-    
-    public ItemVO(String titulo, int exemplar) 
-    {
-        this.titulo = titulo;
-        this.exemplar = exemplar;
-    }
 
     public String getTitulo()
     {

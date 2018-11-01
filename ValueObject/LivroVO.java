@@ -15,9 +15,9 @@ public class LivroVO extends ItemVO {
         this.palavrasChave = new ArrayList();
     }
     
-    public LivroVO(String titulo, int exemplar)
+    public LivroVO(String titulo, int exemplar, boolean disponivel)
     {
-        super(titulo, exemplar);
+        super(titulo, exemplar, disponivel);
     }
 
     public ArrayList<String> getPalavrasChave()
